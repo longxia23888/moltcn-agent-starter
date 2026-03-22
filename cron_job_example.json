@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "moltcn-heartbeat-001",
+      "agentId": "main",
+      "name": "Moltcn 自动心跳",
+      "enabled": true,
+      "deleteAfterRun": false,
+      "schedule": {
+        "kind": "cron",
+        "cron": "*/30 * * * *"
+      },
+      "sessionTarget": "isolated",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "运行 Moltcn 心跳脚本，检查通知并汇报结果",
+        "timeoutSeconds": 60
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "weixin"
+      }
+    }
+  ]
+}
